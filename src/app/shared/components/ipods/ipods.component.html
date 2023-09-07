@@ -1,0 +1,36 @@
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card mt-4"
+        [routerLink]="['/ipods', ipod.ipodId]"
+        *ngFor="let ipod of allIpods">
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <div>
+                    <h4>{{ipod.Iname}}</h4>
+                    <p
+                    [ngClass]="{
+                        'text-danger' : ipod.Irating <= 4.2,
+                        'text-success' : ipod.Irating > 4.3
+    
+                    }">
+                       <strong> Rating : {{ipod.Irating}} <i class="fas fa-star"></i></strong>
+                    </p>
+                    <p>
+                       Prize : {{ipod.Iprize}}
+                    </p>
+                    <p
+                    [ngClass]="{
+                        'text-warning' : ipod.Istatus === 'Available',
+                        'text-primary' : ipod.Istatus === 'Out Of Stock'
+
+                    }">
+                        Status : {{ipod.Istatus}}
+                    </p>
+                </div>
+                <div class="AllImg">
+                    <img src="{{ipod.Iimgurl}}" alt="{{ipod.Iname}}" title="{{ipod.Iname}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card">
+            <div class="card-body d-flex justify-content-around align-items-center">
+               <div>
+                <h2>{{headObj.Hname}}</h2>
+                <p>Prize : <strong>{{headObj.Hprize | currency : 'INR'}}</strong></p>
+                <p [ngClass]="{
+                    'text-danger' : headObj.Hrating <= 4.2,
+                    'text-success' : headObj.Hrating > 4.3
+
+                }"
+                >Rating : <strong>{{headObj.Hrating}} <i class="fas fa-star"></i></strong></p>
+                <p>Details :{{headObj.Hdetails}}</p>
+                <p [ngClass]="{
+                   ' text-info' : headObj.Hstatus === 'Available',
+                   ' text-warning' : headObj.Hstatus === 'Out Of Stock'
+                }"
+                >Status : <strong>{{headObj.Hstatus}}</strong></p>
+               </div>
+               <div class="AllImg">
+                <img src="{{headObj.Himgurl}}" alt="{{headObj.Hname}}" title="{{headObj.Hname}}">
+               </div>
+
+            </div>
+        </div>
+    </div>
+</div>

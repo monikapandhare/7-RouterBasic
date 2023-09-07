@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card"
+        [routerLink]="['/phones', phones.moId]"
+        *ngFor="let phones of allPhones">
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <div>
+                    <h4>{{phones.moName}}</h4>
+                    <p [ngClass]="{
+                        'text-danger' : phones.rating <= 3.5,
+                        'text-success' : phones.rating > 3.5
+                    }">
+                    Rating : <strong>{{phones.rating}}
+                        <i class="fas fa-star"></i>
+                    </strong>
+                   
+                    </p>
+                    <p>RAM : <strong>{{phones.ram}}</strong></p>
+                    <p>
+                       Prize : <strong> {{phones.prize}}</strong>
+                    </p>
+                    <p [ngClass]="{
+                       ' text-info' : phones.status === 'Available',
+                       ' text-warning' : phones.status === 'Out Of Stock'
+
+                    }"
+                   >
+                        Status : <strong> {{phones.status}}</strong>
+                    </p>
+                </div>
+                <div class="AllImg">
+                    <img src="{{phones.imgUrl}}" alt="{{phones.moName}}" title="{{phones.moName}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card mt-4"
+        [routerLink]="['/headphones', head.HeadId]"
+        *ngFor="let head of allHeadphones">
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <div>
+                    <h4>{{head.Hname}}</h4>
+                    <p><strong>prize: {{head.Hprize}}</strong></p>
+                    <p [ngClass]="{
+                        'text-danger' : head.Hrating <= 4.2,
+                        'text-success' : head.Hrating > 4.3
+
+                    }"
+                    ><strong>rating : {{head.Hrating}}<i class="fas fa-star"></i></strong></p>
+                    <p [ngClass]="{
+                        ' text-info' : head.Hstatus === 'Available',
+                        ' text-warning' : head.Hstatus === 'Out Of Stock'
+                     }"
+                    >Status : {{head.Hstatus}}</p>
+                </div>
+                <div class="AllImg">
+                    <img src="{{head.Himgurl}}" alt="{{head.Hname}}" title="{{head.Hname}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

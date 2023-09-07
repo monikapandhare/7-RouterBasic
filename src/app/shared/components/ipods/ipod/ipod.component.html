@@ -1,0 +1,26 @@
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card">
+            <div class="card-body d-flex justify-content-around align-items-center">
+               <div>
+                <h2>{{ipodsInfo.Iname}}</h2>
+                <p>Prize : <strong>{{ipodsInfo.Iprize | currency : 'INR'}}</strong></p>
+                <p [ngClass]="{
+                    'text-danger' : ipodsInfo.Irating <= 4.2,
+                    'text-success' : ipodsInfo.Irating > 4.3
+
+                }"
+                >Rating : <strong>{{ipodsInfo.Irating}}<i class="fas fa-star"></i></strong></p>
+                <p>Details :{{ipodsInfo.Idetails}}</p>
+                <p>Status : <strong>{{ipodsInfo.Istatus}}</strong></p>
+               </div>
+               <div class="AllImg">
+                <img src="{{ipodsInfo.Iimgurl}}" alt="{{ipodsInfo.Iname}}" title="ipodsInfo.Iname">
+               </div>
+
+            </div>
+        </div>
+    </div>
+</div>

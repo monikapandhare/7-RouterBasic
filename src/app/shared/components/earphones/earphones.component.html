@@ -1,0 +1,37 @@
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card mt-4"
+        [routerLink]="['/earphones', ear.earid]"
+        *ngFor="let ear of Earphoninfo">
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <div>
+                    <h4>{{ear.Ename}}</h4>
+                    <p
+                    [ngClass]="{
+                        'text-danger' : ear.Erating <= 4.2,
+                        'text-success' : ear.Erating > 4.3
+    
+                    }">
+                     <strong>Rating : {{ear.Erating}}<i class="fas fa-star"></i></strong> 
+                    </p>
+                    <p>
+                       Prize : {{ear.Eprize}}
+                    </p>
+                    <p
+                    [ngClass]="{
+                        'text-warning' : ear.Estatus === 'Available',
+                        'text-primary' : ear.Estatus === 'Out Of Stock'
+
+                    }">
+                        Status : {{ear.Estatus}}
+                    </p>
+                </div>
+                <div class="AllImg">
+                    <img src="{{ear.Eimgurl}}" alt="{{ear.Ename}}" title="{{ear.Ename}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
